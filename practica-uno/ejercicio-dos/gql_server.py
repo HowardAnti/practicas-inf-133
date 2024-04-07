@@ -71,7 +71,7 @@ class CrearPlanta(Mutation):
 
 class DeletePlanta(Mutation):
     class Arguments:
-        id = Int()
+        id = Int(required=True)
 
     planta = Field(Planta)
 
@@ -96,18 +96,18 @@ class UpdatePlanta(Mutation):
     def mutate(root, info, id, nombre=None, especie=None, edad=None, altura=None, frutos=None):
         for planta in plantas:
             if planta.id == id:
-                if nombre:
+                if nombre is not None:
                     planta.nombre = nombre
-                if especie:
+                if especie is not None:
                     planta.especie = especie
-                if edad:
+                if edad is not None:
                     planta.edad = edad
-                if altura:
+                if altura is not None:
                     planta.altura = altura
-                if frutos:
+                if frutos is not None:
                     planta.frutos = frutos
 
-                return UpdatePlanta(planta=planta)
+                return UpdatePlanta(planta)
 
         return None
         

@@ -71,7 +71,7 @@ print("Buscar por frutos:", response.text)
 
 query_update = """
 mutation {
-        updatePlanta(id: 1, nombre="Gen", especie="fdsa", edad: 3, altura: 21, frutos: false){
+        updatePlanta(id: 1, especie: "Rojo", altura: 21){
             planta{
                 especie
             }
