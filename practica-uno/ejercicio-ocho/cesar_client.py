@@ -2,7 +2,7 @@ import requests
 
 url = "http://localhost:8000/"
 
-#Crear mensaje
+#Crear mensaje 
 
 ruta_post = url + "mensajes"
 nuevo_mensaje = {

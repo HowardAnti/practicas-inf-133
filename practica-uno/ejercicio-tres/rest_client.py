@@ -42,7 +42,7 @@ ruta_get_doctor = url + "pacientes/?doctor=Pedro Perez"
 get_response = requests.request(method="GET", url=ruta_get_doctor)
 print("Listar paciente por doctor", get_response.text)
 
-#Actualizar paciente
+#Actualizar paciente 
 
 ruta_update = url + "pacientes/7062817"
 update_paciente = {

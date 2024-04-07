@@ -61,7 +61,7 @@ edit_paciente = {
 response = requests.put(url+"/7062816", json=edit_paciente, headers=headers)
 print("Actualizar paciente", response.json())
 
-#Eliminar paciente
+#Eliminar paciente 
 
 response = requests.delete(url + "/7062816")
 print("Eliminar paciente", response.json())

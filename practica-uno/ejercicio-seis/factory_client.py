@@ -49,7 +49,7 @@ genero_get="?genero=Macho"
 response = requests.get(f"{url}/{genero_get}")
 print("Buscar por genero:", response.json())
 
-# Actualizar animal
+# Actualizar animal 
 
 animal_id_to_update = 1
 updated_animal_data = {

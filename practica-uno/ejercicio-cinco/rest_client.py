@@ -35,7 +35,7 @@ ruta_get_genero = url + "pacientes/?genero=Macho"
 get_response = requests.request(method="GET", url=ruta_get_genero)
 print("Buscar animales por genero", get_response.text)
 
-#Actualizar animal
+#Actualizar animal 
 
 ruta_update = url + "animales/2"
 update_animal = {

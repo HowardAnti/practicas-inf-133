@@ -39,7 +39,7 @@ print("Crear partida: ", response.text)
 response = requests.request(method="GET", url=url)
 print("Listar partidas", response.text)
 
-# Listar partidas perdidas
+# Listar partidas perdidas 
 
 response = requests.request(
     method="GET", url=url + "?resultado=perdio", json=player_state
