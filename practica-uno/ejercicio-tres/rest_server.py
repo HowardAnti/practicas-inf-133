@@ -50,11 +50,7 @@ class RESTRequestHandler(BaseHTTPRequestHandler):
             self.response_handler(200, [paciente])
         elif "diagnostico" in query_params:
             diagnostico_tipo = query_params["diagnostico"][0]
-            pacientes_filtrados = [
-                    paciente
-                    for paciente in pacientes
-                    for diagnostico in paciente["diagnosticos"]
-                    if diagnostico == diagnostico_tipo
+            pacientes_filtrados = [paciente for paciente in pacientes for diagnostico in paciente["diagnosticos"] if diagnostico == diagnostico_tipo
                 ]
             if pacientes_filtrados != []:
                 self.response_handler(200, pacientes_filtrados)

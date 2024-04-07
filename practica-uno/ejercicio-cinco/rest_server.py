@@ -7,7 +7,7 @@ from urllib.parse import urlparse, parse_qs
 animales = [
     {
         "nombre": "Howard",
-        "especie": "Jaguar",
+        "especie": "Gato",
         "genero": "Macho",
         "edad": 12,
         "peso": 55,

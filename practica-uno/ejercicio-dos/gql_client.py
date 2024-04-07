@@ -2,36 +2,8 @@ import requests
 
 url = 'http://localhost:8000/graphql'
 
-
-query_lista = """
-{
-        plantas{
-            id
-            nombre
-            especie
-            edad
-            altura
-            frutos
-        }
-    }
-"""
-
-response = requests.post(url, json={'query': query_lista})
-print(response.text)
-
-
-query = """
-    {
-        plantaPorEspecie(especie: "Orquidea"){
-            nombre
-        }
-    }
-"""
-
-
-response = requests.post(url, json={'query': query})
-print(response.text)
-
+#Activar venv con zeep y graphene
+#Crear planta
 
 query_crear = """
 mutation {
@@ -48,7 +20,41 @@ mutation {
 """
 
 response_mutation = requests.post(url, json={'query': query_crear})
-print(response_mutation.text)
+print("Crear planta:", response_mutation.text)
+
+#Listar plantas
+
+query_lista = """
+{
+        plantas{
+            id
+            nombre
+            especie
+            edad
+            altura
+            frutos
+        }
+    }
+"""
+
+response = requests.post(url, json={'query': query_lista})
+print("Listar plantas:", response.text)
+
+#Buscar plantas por especie
+
+query = """
+    {
+        plantaPorEspecie(especie: "Orquidea"){
+            nombre
+        }
+    }
+"""
+
+
+response = requests.post(url, json={'query': query})
+print("Plantas por especie:", response.text)
+
+#Buscar plantas que tienen frutos
 
 query_frutos = """
     {
@@ -58,9 +64,10 @@ query_frutos = """
     }
 """
 
-
 response = requests.post(url, json={'query': query_frutos})
-print(response.text)
+print("Buscar por frutos:", response.text)
+
+#Actualizar planta
 
 query_update = """
 mutation {
@@ -74,7 +81,9 @@ mutation {
 """
 
 response = requests.post(url, json={'query': query_update})
-print(response.text)
+print("Actualizar planta:", response.text)
+
+#Eliminar planta
 
 query_eliminar = """
 mutation {
@@ -92,8 +101,4 @@ mutation {
 """
 
 response_mutation = requests.post(url, json={'query': query_eliminar})
-print(response_mutation.text)
-
-# Lista de todos los estudiantes
-response = requests.post(url, json={'query': query_lista})
-print(response.text)
+print("Eliminar planta:", response_mutation.text)
