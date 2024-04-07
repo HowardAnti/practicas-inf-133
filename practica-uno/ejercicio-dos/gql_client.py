@@ -102,3 +102,20 @@ mutation {
 
 response_mutation = requests.post(url, json={'query': query_eliminar})
 print("Eliminar planta:", response_mutation.text)
+
+
+query_lista = """
+{
+        plantas{
+            id
+            nombre
+            especie
+            edad
+            altura
+            frutos
+        }
+    }
+"""
+
+response = requests.post(url, json={'query': query_lista})
+print("Listar plantas:", response.text)

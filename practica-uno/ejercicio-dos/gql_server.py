@@ -13,13 +13,8 @@ class Planta(ObjectType):
     altura = Int()
     frutos = Boolean()
 
-    def update_Planta(self, nombre, especie, edad, altura, frutos):
-        self.nombre = nombre
-        self.especie = especie
-        self.edad = edad
-        self.altura = altura
-        self.frutos = frutos
-        
+
+
 
 plantas = [
     Planta(
@@ -97,22 +92,23 @@ class UpdatePlanta(Mutation):
         frutos = Boolean()
 
     planta = Field(Planta)
-    
+
     def mutate(root, info, id, nombre=None, especie=None, edad=None, altura=None, frutos=None):
         for planta in plantas:
             if planta.id == id:
-                if nombre is not None:
+                if nombre:
                     planta.nombre = nombre
-                if especie is not None:
+                if especie:
                     planta.especie = especie
-                if edad is not None:
+                if edad:
                     planta.edad = edad
-                if altura is not None:
+                if altura:
                     planta.altura = altura
-                if frutos is not None:
+                if frutos:
                     planta.frutos = frutos
-                
+
                 return UpdatePlanta(planta=planta)
+
         return None
         
 
